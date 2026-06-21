@@ -1,5 +1,9 @@
 import psycopg2
+
+from psycopg2.extras import RealDictCursor
+
 from config import Config
+
 
 def get_connection():
     return psycopg2.connect(
@@ -7,5 +11,6 @@ def get_connection():
         port=Config.DB_PORT,
         database=Config.DB_NAME,
         user=Config.DB_USER,
-        password=Config.DB_PASSWORD
+        password=Config.DB_PASSWORD,
+        cursor_factory=RealDictCursor
     )
