@@ -1,5 +1,11 @@
-a = 2
+import psycopg2
+from config import Config
 
-b = 3
-c = b + a
-print(c)
+def get_connection():
+    return psycopg2.connect(
+        host=Config.DB_HOST,
+        port=Config.DB_PORT,
+        database=Config.DB_NAME,
+        user=Config.DB_USER,
+        password=Config.DB_PASSWORD
+    )
