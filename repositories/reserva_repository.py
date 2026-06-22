@@ -105,3 +105,68 @@ def realizar_checkout(id_reserva):
 
         cursor.close()
         conn.close()
+
+def atualizar_reserva(
+        id_reserva,
+        dados
+):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    try:
+
+        cursor.execute("""
+            CALL sp_atualizar_reserva(
+                %s,
+                %s,
+                %s,
+                %s,
+                %s,
+                %s
+            )
+        """,
+                       (
+                           id_reserva,
+                           dados["id_hospede_responsavel"],
+                           dados["id_quarto"],
+                           dados["checkin_previsto"],
+                           dados["checkout_previsto"],
+                           dados["quantidade_hospedes"]
+                       ))
+
+        conn.commit()
+
+        return {
+            "mensagem":
+                "Reserva atualizada"
+        }
+
+    finally:
+
+        cursor.close()
+        conn.close()
+
+def deletar_reserva(id_reserva):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    try:
+
+        cursor.execute("""
+                       DELETE FROM reserva
+                       WHERE id_reserva = %s
+                       """, (id_reserva,))
+
+        conn.commit()
+
+        return {
+            "mensagem":
+                "Reserva removida"
+        }
+
+    finally:
+
+        cursor.close()
+        conn.close()

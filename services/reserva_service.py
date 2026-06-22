@@ -21,3 +21,18 @@ def checkout(id_reserva):
     return reserva_repository.realizar_checkout(
         id_reserva
     )
+
+def atualizar(
+        id_reserva,
+        dados
+):
+    return reserva_repository.atualizar_reserva(
+        id_reserva,
+        dados
+    )
+
+def deletar(id_reserva):
+
+    return reserva_repository.deletar_reserva(
+        id_reserva
+    )

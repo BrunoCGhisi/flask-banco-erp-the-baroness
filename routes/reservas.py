@@ -88,3 +88,50 @@ def checkout(id_reserva):
         return jsonify({
             "erro": str(e)
         }), 400
+
+@reserva_bp.route(
+    "/<int:id_reserva>",
+    methods=["PUT"]
+)
+def atualizar(id_reserva):
+
+    try:
+
+        dados = request.json
+
+        return jsonify(
+            reserva_service.atualizar(
+                id_reserva,
+                dados
+            )
+        )
+
+    except Exception as e:
+
+        return jsonify({
+            "erro": str(e)
+        }), 400
+
+
+@reserva_bp.route(
+    "/<int:id_reserva>",
+    methods=["DELETE"]
+)
+def deletar(id_reserva):
+
+    try:
+
+        reserva_service.deletar(
+            id_reserva
+        )
+
+        return jsonify({
+            "mensagem":
+                "Reserva removida com sucesso"
+        })
+
+    except Exception as e:
+
+        return jsonify({
+            "erro": str(e)
+        }), 400
