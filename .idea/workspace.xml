@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="171e8349-ab10-4451-b91b-1762983c390d" name="Changes" comment="quarto categoria adjust">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/reserva_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/reserva_repository.py" afterDir="false" />
-    </list>
+    <list default="true" id="171e8349-ab10-4451-b91b-1762983c390d" name="Changes" comment="quarto categoria adjust" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -255,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782170204376</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="quarto categoria adjust">
+      <option name="closed" value="true" />
+      <created>1782170888713</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1782170888713</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
