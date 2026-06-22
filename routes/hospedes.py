@@ -8,6 +8,7 @@ hospede_bp = Blueprint(
     url_prefix="/hospedes"
 )
 
+
 @hospede_bp.route("/", methods=["GET"])
 def listar():
 

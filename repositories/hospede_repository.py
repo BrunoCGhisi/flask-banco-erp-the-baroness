@@ -9,10 +9,10 @@ def listar_hospedes():
     try:
 
         cursor.execute("""
-            SELECT *
-            FROM hospede
-            ORDER BY id_hospede
-        """)
+                       SELECT *
+                       FROM hospede
+                       ORDER BY id_hospede
+                       """)
 
         return cursor.fetchall()
 
@@ -29,10 +29,10 @@ def buscar_hospede_por_id(id_hospede):
     try:
 
         cursor.execute("""
-            SELECT *
-            FROM hospede
-            WHERE id_hospede = %s
-        """, (id_hospede,))
+                       SELECT *
+                       FROM hospede
+                       WHERE id_hospede = %s
+                       """, (id_hospede,))
 
         return cursor.fetchone()
 
@@ -49,25 +49,25 @@ def criar_hospede(dados):
     try:
 
         cursor.execute("""
-            INSERT INTO hospede(
-                nome,
-                cpf,
-                telefone,
-                email,
-                endereco,
-                data_nascimento
-            )
-            VALUES (%s,%s,%s,%s,%s,%s)
-            RETURNING *
-        """,
-        (
-            dados["nome"],
-            dados["cpf"],
-            dados["telefone"],
-            dados["email"],
-            dados["endereco"],
-            dados["data_nascimento"]
-        ))
+                       INSERT INTO hospede(
+                           nome,
+                           cpf,
+                           telefone,
+                           email,
+                           endereco,
+                           data_nascimento
+                       )
+                       VALUES (%s,%s,%s,%s,%s,%s)
+                           RETURNING *
+                       """,
+                       (
+                           dados["nome"],
+                           dados["cpf"],
+                           dados["telefone"],
+                           dados["email"],
+                           dados["endereco"],
+                           dados["data_nascimento"]
+                       ))
 
         hospede = cursor.fetchone()
 
@@ -88,24 +88,24 @@ def atualizar_hospede(id_hospede, dados):
     try:
 
         cursor.execute("""
-            UPDATE hospede
-            SET
-                nome = %s,
-                telefone = %s,
-                email = %s,
-                endereco = %s,
-                data_nascimento = %s
-            WHERE id_hospede = %s
-            RETURNING *
-        """,
-        (
-            dados["nome"],
-            dados["telefone"],
-            dados["email"],
-            dados["endereco"],
-            dados["data_nascimento"],
-            id_hospede
-        ))
+                       UPDATE hospede
+                       SET
+                           nome = %s,
+                           telefone = %s,
+                           email = %s,
+                           endereco = %s,
+                           data_nascimento = %s
+                       WHERE id_hospede = %s
+                           RETURNING *
+                       """,
+                       (
+                           dados["nome"],
+                           dados["telefone"],
+                           dados["email"],
+                           dados["endereco"],
+                           dados["data_nascimento"],
+                           id_hospede
+                       ))
 
         hospede = cursor.fetchone()
 
@@ -126,9 +126,9 @@ def deletar_hospede(id_hospede):
     try:
 
         cursor.execute("""
-            DELETE FROM hospede
-            WHERE id_hospede = %s
-        """, (id_hospede,))
+                       DELETE FROM hospede
+                       WHERE id_hospede = %s
+                       """, (id_hospede,))
 
         conn.commit()
 
@@ -136,4 +136,3 @@ def deletar_hospede(id_hospede):
 
         cursor.close()
         conn.close()
-

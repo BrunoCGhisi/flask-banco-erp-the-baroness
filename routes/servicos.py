@@ -1,24 +1,26 @@
-from flask import Blueprint
-from flask import request
-from flask import jsonify
+from flask import (
+    Blueprint,
+    request,
+    jsonify
+)
 
-from services import quarto_service
+from services import servico_service
 
 
-quarto_bp = Blueprint(
-    "quarto",
+servico_bp = Blueprint(
+    "servico",
     __name__,
-    url_prefix="/quartos"
+    url_prefix="/servicos"
 )
 
 
-@quarto_bp.route("/", methods=["GET"])
+@servico_bp.route("/", methods=["GET"])
 def listar():
 
     try:
 
         return jsonify(
-            quarto_service.listar()
+            servico_service.listar()
         )
 
     except Exception as e:
@@ -28,14 +30,17 @@ def listar():
         }), 500
 
 
-@quarto_bp.route("/<int:id_quarto>", methods=["GET"])
-def buscar(id_quarto):
+@servico_bp.route(
+    "/<int:id_servico>",
+    methods=["GET"]
+)
+def buscar(id_servico):
 
     try:
 
         return jsonify(
-            quarto_service.buscar_por_id(
-                id_quarto
+            servico_service.buscar_por_id(
+                id_servico
             )
         )
 
@@ -46,19 +51,19 @@ def buscar(id_quarto):
         }), 500
 
 
-@quarto_bp.route("/", methods=["POST"])
+@servico_bp.route("/", methods=["POST"])
 def criar():
 
     try:
 
         dados = request.json
 
-        quarto = quarto_service.criar(
+        servico = servico_service.criar(
             dados
         )
 
         return jsonify(
-            quarto
+            servico
         ), 201
 
     except Exception as e:
@@ -68,20 +73,23 @@ def criar():
         }), 400
 
 
-@quarto_bp.route("/<int:id_quarto>", methods=["PUT"])
-def atualizar(id_quarto):
+@servico_bp.route(
+    "/<int:id_servico>",
+    methods=["PUT"]
+)
+def atualizar(id_servico):
 
     try:
 
         dados = request.json
 
-        quarto = quarto_service.atualizar(
-            id_quarto,
+        servico = servico_service.atualizar(
+            id_servico,
             dados
         )
 
         return jsonify(
-            quarto
+            servico
         )
 
     except Exception as e:
@@ -91,18 +99,21 @@ def atualizar(id_quarto):
         }), 400
 
 
-@quarto_bp.route("/<int:id_quarto>", methods=["DELETE"])
-def deletar(id_quarto):
+@servico_bp.route(
+    "/<int:id_servico>",
+    methods=["DELETE"]
+)
+def deletar(id_servico):
 
     try:
 
-        quarto_service.deletar(
-            id_quarto
+        servico_service.deletar(
+            id_servico
         )
 
         return jsonify({
             "mensagem":
-                "Quarto removido com sucesso"
+                "Serviço removido com sucesso"
         })
 
     except Exception as e:
