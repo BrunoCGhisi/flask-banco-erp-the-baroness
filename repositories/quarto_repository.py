@@ -14,6 +14,7 @@ def listar_quartos():
                            q.numero,
                            q.andar,
                            q.status,
+                           q.id_categoria,
                            c.nome AS categoria
                        FROM quarto q
                                 JOIN categoria_quarto c

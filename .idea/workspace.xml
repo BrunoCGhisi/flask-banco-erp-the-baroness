@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="171e8349-ab10-4451-b91b-1762983c390d" name="Changes" comment="contas_receber working">
-      <change afterPath="$PROJECT_DIR$/repositories/pagamento_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repositories/servico_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/servicos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/pagamento_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/servico_service.py" afterDir="false" />
+    <list default="true" id="171e8349-ab10-4451-b91b-1762983c390d" name="Changes" comment="pagamentos and servios working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/pagamentos.py" beforeDir="false" afterPath="$PROJECT_DIR$/routes/pagamentos.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +156,7 @@
       <workItem from="1781815914083" duration="1000" />
       <workItem from="1781833220441" duration="1973000" />
       <workItem from="1781991484679" duration="5509000" />
-      <workItem from="1782084404537" duration="3460000" />
+      <workItem from="1782084404537" duration="8704000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -237,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782087261653</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="pagamentos and servios working">
+      <option name="closed" value="true" />
+      <created>1782088121279</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1782088121279</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +252,8 @@
     <MESSAGE value="quartos working" />
     <MESSAGE value="reserva working" />
     <MESSAGE value="contas_receber working" />
-    <option name="LAST_COMMIT_MESSAGE" value="contas_receber working" />
+    <MESSAGE value="pagamentos and servios working" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagamentos and servios working" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flask_banco_erp_the_baroness$app.coverage" NAME="app Coverage Results" MODIFIED="1782009339583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
