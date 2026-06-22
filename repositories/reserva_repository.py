@@ -9,8 +9,31 @@ def listar_reservas():
     try:
 
         cursor.execute("""
-                       SELECT *
+                       SELECT
+
+                           id_reserva,
+
+                           id_hospede_responsavel,
+                           id_quarto,
+
+                           hospede_responsavel,
+                           numero_quarto,
+
+                           TO_CHAR(
+                                   checkin_previsto,
+                                   'YYYY-MM-DD'
+                           ) AS checkin_previsto,
+
+                           TO_CHAR(
+                                   checkout_previsto,
+                                   'YYYY-MM-DD'
+                           ) AS checkout_previsto,
+
+                           quantidade_hospedes,
+                           status
+
                        FROM vw_reservas_ativas
+
                        ORDER BY id_reserva
                        """)
 
