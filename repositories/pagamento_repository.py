@@ -1,26 +1,18 @@
 from database.connection import get_connection
 
-
 def listar_pagamentos():
-
     conn = get_connection()
     cursor = conn.cursor()
-
     try:
-
         cursor.execute("""
                        SELECT *
-                       FROM pagamento
-                       ORDER BY id_pagamento
+                       FROM vw_pagamentos
+                       ORDER BY id_pagamento desc 
                        """)
-
         return cursor.fetchall()
-
     finally:
-
         cursor.close()
         conn.close()
-
 
 def registrar_pagamento(dados):
 
@@ -41,15 +33,12 @@ def registrar_pagamento(dados):
                            dados["valor"],
                            dados["id_forma_pagamento"]
                        ))
-
         conn.commit()
 
         return {
             "mensagem":
                 "Pagamento registrado com sucesso"
         }
-
     finally:
-
         cursor.close()
         conn.close()

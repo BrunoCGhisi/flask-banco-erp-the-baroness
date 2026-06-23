@@ -1,16 +1,16 @@
-from flask import Blueprint
-from flask import jsonify
-from flask import request
+from flask import (
+    Blueprint,
+    jsonify,
+    request
+)
 
 from services import pagamento_service
-
 
 pagamento_bp = Blueprint(
     "pagamento",
     __name__,
     url_prefix="/pagamentos"
 )
-
 
 @pagamento_bp.route("/", methods=["GET"])
 def listar():
@@ -24,9 +24,8 @@ def listar():
     except Exception as e:
 
         return jsonify({
-            "erro": str(e)
-        }), 500
-
+            "erro":str(e)
+        }),500
 
 @pagamento_bp.route("/", methods=["POST"])
 def registrar():
@@ -34,15 +33,14 @@ def registrar():
     try:
 
         dados = request.json
-
         return jsonify(
             pagamento_service.registrar(
                 dados
             )
-        )
+        ),201
 
     except Exception as e:
 
         return jsonify({
-            "erro": str(e)
-        }), 400
+            "erro":str(e)
+        }),400

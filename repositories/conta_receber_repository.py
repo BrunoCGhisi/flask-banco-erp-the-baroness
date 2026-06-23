@@ -1,6 +1,7 @@
 from database.connection import get_connection
 
 
+
 def listar_contas():
 
     conn = get_connection()
@@ -11,7 +12,7 @@ def listar_contas():
         cursor.execute("""
                        SELECT *
                        FROM vw_situacao_financeira
-                       ORDER BY id_reserva
+                       ORDER BY id_conta
                        """)
 
         return cursor.fetchall()
@@ -20,6 +21,7 @@ def listar_contas():
 
         cursor.close()
         conn.close()
+
 
 
 def buscar_conta(id_conta):
@@ -33,7 +35,10 @@ def buscar_conta(id_conta):
                        SELECT *
                        FROM conta_receber
                        WHERE id_conta = %s
-                       """, (id_conta,))
+                       """,
+                       (
+                           id_conta,
+                       ))
 
         return cursor.fetchone()
 

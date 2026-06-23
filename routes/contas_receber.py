@@ -1,15 +1,12 @@
-from flask import Blueprint
-from flask import jsonify
+from flask import Blueprint, jsonify
 
 from services import conta_receber_service
-
 
 conta_receber_bp = Blueprint(
     "conta_receber",
     __name__,
     url_prefix="/contas-receber"
 )
-
 
 @conta_receber_bp.route("/", methods=["GET"])
 def listar():
@@ -23,9 +20,8 @@ def listar():
     except Exception as e:
 
         return jsonify({
-            "erro": str(e)
-        }), 500
-
+            "erro":str(e)
+        }),500
 
 @conta_receber_bp.route(
     "/<int:id_conta>",
@@ -44,5 +40,5 @@ def buscar(id_conta):
     except Exception as e:
 
         return jsonify({
-            "erro": str(e)
-        }), 500
+            "erro":str(e)
+        }),500
